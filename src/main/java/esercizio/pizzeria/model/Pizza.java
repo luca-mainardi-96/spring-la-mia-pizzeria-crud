@@ -18,6 +18,8 @@ public class Pizza {
     private String description;
     private String photo;
     private Double price;
+    private String doughType;
+    private Integer prepTime;
     
     //Getters
     
@@ -38,6 +40,14 @@ public class Pizza {
         return price;
     }
 
+    public String getDoughType() {
+        return doughType;
+    }
+
+    public Integer getPrepTime() {
+        return prepTime;
+    }
+
     //Setters
 
     public void setId(Integer id){
@@ -55,6 +65,14 @@ public class Pizza {
     }
     public void setPrezzo(Double price) {
         this.price = price;
+    }
+
+    public void setDoughType(String doughType) {
+        this.doughType = doughType;
+    }
+
+    public void setPrepTime(Integer prepTime) {
+        this.prepTime = prepTime;
     }
                 
 }
