@@ -70,16 +70,16 @@ public class Pizza {
         this.id = id;
     }
 
-    public void setNome(String name) {
+    public void setName(String name) {
         this.name = name;
     }
-    public void setDescrizione(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
-    public void setFoto(String photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
-    public void setPrezzo(Double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
