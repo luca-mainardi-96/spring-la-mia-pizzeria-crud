@@ -67,7 +67,7 @@
             <small class="card-text col-12" th:text="|Ingredienti: ${item.description}|"></small>
             <p class="card-text fw-bold col-6" th:text="|Prezzo: ${item.price} €|"></p>
             <button class="btn btn-primary col-6">
-                <a th:href="@{/details/{id}(id=${item.name})}">
+                <a th:href="@{/details/{id}(id=${item.id})}">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none"
                         stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
                         class="bi bi-pizza-slice" viewBox="0 0 16 16">
@@ -99,12 +99,16 @@
                 <h5 class="card-title" th:text="${pizza.name}"></h5>
                 <p class="card-text" th:text="|Ingredienti: ${pizza.description}|"></p>
                 <p class="card-text" th:text="|Impasto: ${pizza.doughType}|"></p>
-                <p class="card-text" th:text="|Tempo di preparazione: ${pizza.prepTime}|"></p>
+                <p class="card-text" th:text="|Tempo di preparazione: ${pizza.prepTime} minuti|"></p>
                 <p class="card-text" th:text="|Prezzo: ${pizza.price} €|"></p>
             </div>
             </div>
         </div>
     </div>
+
+    <!-- Form Detail -->
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
 </body>
