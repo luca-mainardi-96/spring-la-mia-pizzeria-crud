@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -71,4 +72,34 @@ public class PizzaController {
         repository.save(formPizza);
         return "redirect:/";
     }    
+
+    @PostMapping("delete/{id}")
+    public String delete(@PathVariable("id") Integer id){
+        repository.deleteById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("pizza", repository.findById(id).get());
+        return "/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String update(@Valid @ModelAttribute("pizza") Pizza formPizza,
+                        BindingResult bindingResult, Model model){
+
+    Pizza oldPizza = repository.findById(formPizza.getId()).get();
+
+    if(!oldPizza.getName().equals(formPizza.getName())){
+        bindingResult.addError(new FieldError("pizza", "name", "Field name in unmodifiable."));
+    }
+                            
+    if(bindingResult.hasErrors()){
+        return "/edit";
+    }
+
+    repository.save(formPizza);
+    return "redirect:/";
+    }
 }
